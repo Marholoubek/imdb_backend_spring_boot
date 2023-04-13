@@ -10,5 +10,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TitleBasicsRepository extends JpaRepository<TitleBasics, String>, JpaSpecificationExecutor<TitleBasics> {
     Page<TitleBasics> findAll(Pageable pageable);
-
 }

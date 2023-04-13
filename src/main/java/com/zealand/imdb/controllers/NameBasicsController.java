@@ -1,6 +1,7 @@
 package com.zealand.imdb.controllers;
 
 import com.zealand.imdb.models.NameBasics;
+import com.zealand.imdb.models.api.NameBasicsApi;
 import com.zealand.imdb.services.NameBasicsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -24,6 +25,21 @@ public class NameBasicsController {
     @GetMapping("/{id}")
     public NameBasics getActorById(@PathVariable String id) {
         return nameBasicsService.getActorById(id);
+    }
+
+    @PostMapping
+    public NameBasics createActor(@RequestBody NameBasicsApi nameBasics) {
+        return nameBasicsService.createActor(nameBasics);
+    }
+
+    @PutMapping("/{id}")
+    public NameBasics updateActor(@PathVariable String id, @RequestBody NameBasicsApi nameBasics) {
+        return nameBasicsService.updateActor(id, nameBasics);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteActor(@PathVariable String id) {
+        nameBasicsService.deleteActor(id);
     }
 
 }
